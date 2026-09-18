@@ -1,0 +1,12 @@
+[alias]
+# Repository tooling: `cargo xtask help`. Locked, so a stale Cargo.lock fails instead of being
+# rewritten before the gates run.
+xtask = "run --locked --package xtask --"
+
+# Link the C runtime statically so Windows binaries need no Visual C++ redistributable.
+[target.'cfg(all(windows, target_env = "msvc"))']
+rustflags = ["-C", "target-feature=+crt-static"]
+
+# Cross-link static arm64 Linux binaries from any host with the bundled linker.
+[target.aarch64-unknown-linux-musl]
+linker = "rust-lld"

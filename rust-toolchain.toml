@@ -1,0 +1,6 @@
+# One toolchain for every machine and CI, so formatting and lints agree. Keep `channel` equal to
+# `rust-version` in Cargo.toml; bump both in one change.
+[toolchain]
+channel = "1.98"
+components = ["clippy", "rustfmt"]
+profile = "minimal"
