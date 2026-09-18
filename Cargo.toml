@@ -1,0 +1,36 @@
+[workspace]
+members = ["xtask"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.98"
+license = "MIT"
+repository = "https://github.com/volod/agent-rs"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+pedantic = { level = "warn", priority = -1 }
+
+[package]
+name = "agent-rs"
+description = "Copy-ready Rust command-line project skeleton for people and coding agents"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+
+[dependencies]
+clap = { version = "4.6", features = ["derive"] }
+
+[lints]
+workspace = true
+
+[profile.release]
+codegen-units = 1
+lto = true
+strip = true

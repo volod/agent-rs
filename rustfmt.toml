@@ -1,0 +1,2 @@
+# Use the full 100-column width before wrapping, so tables of test cases stay one row per line.
+use_small_heuristics = "Max"
